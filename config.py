@@ -1,12 +1,13 @@
+import password
 ################################################################################
 # SMTP configuration settings.
 ################################################################################
 smtp = {
-    'username': 'username',
-    'password': 'password',
-    'host': 'email-smtp.example.com',
+    'username': '82124a001@smtp-brevo.com',
+    'password': password.smtp_password,
+    'host': 'smtp-relay.brevo.com',
     'port': 587,
-    'from_email': 'email-used-to-send-letters@example.com',
+    'from_email': 'vsparikh1996@gmail.com',
 }
 
 ################################################################################
@@ -14,16 +15,19 @@ smtp = {
 # Note that {santa} and {recipient} are automatically replaced by the secret
 # santa's name, and his/her recipient of their gift.
 ################################################################################
+
+mail_address = "1002-1335 Howe street, Vancouver, BC, V6Z1R7"
+
 email_template = {
     'from_name': 'Secret Santa',
     'from_email': smtp['from_email'],
     'subject': 'Family Christmas',
     'body': """
 Ho Ho Ho!
-
-{santa}, you are {recipient}'s secret Santa!
-
-Merry Christmas!
+        {santa}, It's time to spread some holiday cheer! You’ve been chosen to be {recipient}'s Secret Santa. 
+        Please remember to keep it a surprise and stick to the budget of 30 CAD.
+        Send it to {mail_address} in packag to be opened with you or bring it along with you
+Happy gifting and Merry Christmas! 🎄🎁
 """
 }
 
@@ -31,14 +35,8 @@ Merry Christmas!
 # The complete list of all the secret santa's and their email addresses.
 ################################################################################
 santas = {
-    'James': 'james@example.com',
-    'Mary': 'mary@example.com',
-    'Nancy': 'nancy@example.com',
-    'John': 'john@example.com',
-    'Michael': 'michael@example.com',
-    'Lisa': 'lisa@example.com',
-    'David': 'david@example.com',
-    'Linda': 'linda@example.com',
+    'Viken': 'vsparikh1996@gmail.com',
+    'Viken2': 'vsparikh1996@gmail.com',
 }
 
 ################################################################################
@@ -49,16 +47,7 @@ santas = {
 ################################################################################
 incompatibles = {
     # Do not allow James to be santa for Mary
-    'James': ('Mary',),
-
-    # Do not allow Mary to be santa for James
-    'Mary': ('James',),
-
-    # Do not allow Nancy to be santa for John or Mary
-    'Nancy': ('John', 'Mary',),
-
-    # Something like below is bad, Linda can't be a secret santa for anyone!
-#   'Linda': ('James', 'Mary', 'Nancy', 'John', 'Michael', 'Lisa', 'David'),
+    # 'James': ('Mary',),
 }
 
 ################################################################################
